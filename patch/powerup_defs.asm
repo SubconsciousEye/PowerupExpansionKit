@@ -317,9 +317,18 @@ endif
 !player_y_high                  = $97
 !player_x_speed                 = $7B
 !player_y_speed                 = $7D
+!player_x_speed_sub             = $7A
+!player_y_speed_sub             = $7C
+!player_x_speed_16              = !player_x_speed_sub
+!player_y_speed_16              = !player_y_speed_sub
 
 !player_powerup                 = $19
 !player_num                     = $0DB3|!addr
+!player_powerup_timer           = $14A8|!addr ; Unused in SMW
+!player_powerup_flags           = $18CA|!addr
+!player_powerup_states          = !player_powerup_flags
+!player_powerup_misc0           = $18CB|!addr
+!player_powerup_misc1           = $18CC|!addr
 
 !player_in_air                  = $72
 !player_blocked_status          = $77
@@ -363,8 +372,10 @@ endif
 !player_spinjump_timer          = $13E2|!addr
 !player_star_timer              = $1490|!addr
 !player_dash_timer              = $13E4|!addr
+!player_takeoff_timer           = $149F|!addr
 !player_shoot_pose_timer        = $149C|!addr
 !player_animation_timer         = $1496|!addr
+!player_airwalk_timer           = $14A0|!addr ; ???
 
 !cape_interaction_flag          = $13E8|!addr
 !cape_interaction_x_pos         = $13E9|!addr
