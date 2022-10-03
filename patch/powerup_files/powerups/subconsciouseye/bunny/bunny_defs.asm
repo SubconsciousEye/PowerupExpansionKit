@@ -126,8 +126,51 @@
 ;################################################
 ;# Powerup-specific customization
 
-;# Amount of frames the player will display the "shooting fireball" pose
-!bunny_pose_pose_timer = $08
+;# Hover Mode Defines
+!bunny_hover_timer = $14A8|!addr ; Unused in SMW
+!bunny_states = $18CA|!addr
+!bunny_backup_y_speed = $18CB|!addr
+
+;# Number of frames to wait for hover.
+!bunny_hover_frames = #$07
+
+;# Bit to determine the ear "flap" frames.
+!bunny_ear_flap = #$04
+
+;# SFX number & port for ears "flap"
+!bunny_ear_sfx = #$21
+!bunny_ear_port = $1DFC|!addr
+
+
+;# SFX number & port for auto-hop on land.
+!bunny_jump_sfx_num = #$35
+!bunny_jump_sfx_port = $1DFC|!addr
+
+;# SFX number & port for auto-hop in water.
+!bunny_swim_sfx_num = #$0E
+!bunny_swim_sfx_port = $1DF9|!addr
+
+;# Custom Sounds Option
+;#  if set to !no, it'll use vanilla sounds.
+!bunny_useCustomSounds = !no
+
+if !bunny_useCustomSounds == !no
+    !bunny_jump_sfx_num := read1($00D65F|!bank)
+    !bunny_jump_sfx_port := read2($00D661|!bank)
+    !bunny_swim_sfx_num := read1($00DAAA|!bank)
+    !bunny_swim_sfx_port := read2($00DAAC|!bank)
+endif
+
+
+;# Auto-Hop Land Speed Options
+
+;# Use vanilla's jump speeds?
+;#  not recommended in case you happen to be moving too fast.
+!bunny_useOrigJumpSpeeds = !no
+
+;# Calculate values from vanilla's jump speeds?
+;#  this is handled weirdly, and may be removed in future versions.
+!bunny_calcFromOrigJumpSpeeds = !no
 
 
 ;#######################
