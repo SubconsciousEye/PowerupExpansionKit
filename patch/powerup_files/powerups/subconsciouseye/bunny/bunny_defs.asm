@@ -127,9 +127,9 @@
 ;# Powerup-specific customization
 
 ;# Hover Mode Defines
-!bunny_hover_timer = $14A8|!addr ; Unused in SMW
-!bunny_states = $18CA|!addr
-!bunny_backup_y_speed = $18CB|!addr
+!bunny_hover_timer = !player_powerup_timer
+!bunny_states = !player_powerup_states
+!bunny_backup_y_speed = !player_powerup_misc0
 
 ;# Number of frames to wait for hover.
 !bunny_hover_frames = #$07
@@ -138,8 +138,8 @@
 !bunny_ear_flap = #$04
 
 ;# SFX number & port for ears "flap"
-!bunny_ear_sfx = #$21
-!bunny_ear_port = $1DFC|!addr
+!bunny_ear_sfx_num = #$21
+!bunny_ear_sfx_port = $1DFC|!addr
 
 
 ;# SFX number & port for auto-hop on land.
