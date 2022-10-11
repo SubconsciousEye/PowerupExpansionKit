@@ -2,7 +2,6 @@
 ;# Powerup: Bunny Mario
 ;# Author: Nintendo (Original), SubconsciousEye (Port)
 ;# Description: The Super Carrot Powerup from Super Mario Land 2, with near-accurate behavior.
-
 ;#
 ;# This code will once run whenever Mario gets hurt while using this powerup.
 ;#

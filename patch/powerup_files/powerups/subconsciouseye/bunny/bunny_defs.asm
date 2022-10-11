@@ -3,7 +3,6 @@
 ;# Author: Nintendo (Original), SubconsciousEye (Port)
 ;# Description: The Super Carrot Powerup from Super Mario Land 2, with near-accurate behavior.
 
-
 ;################################################
 ;# General behavior
 
@@ -130,6 +129,7 @@
 !bunny_hover_timer = !player_powerup_timer
 !bunny_states = !player_powerup_states
 !bunny_backup_y_speed = !player_powerup_misc0
+!bunny_backup_x_speed = !player_powerup_misc1
 
 ;# Number of frames to wait for hover.
 !bunny_hover_frames = #$07
