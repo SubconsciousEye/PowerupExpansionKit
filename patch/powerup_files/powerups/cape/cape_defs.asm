@@ -24,6 +24,9 @@
 ;# Enable riding Yoshi with this powerup.
 !cape_can_ride_yoshi = !yes
 
+;# Enable easier Yoshi flight with this powerup.
+!cape_easy_yoshi_flight = !yes
+
 
 ;################################################
 ;# Powerdown

@@ -61,7 +61,7 @@ include
 ;################################################
 ;# Free RAM blocks
 
-;# Free BW-RAM used in SA-1 ROMs. Needs at least 478 consecutive bytes.
+;# Free BW-RAM used in SA-1 ROMs. Needs at least 480 consecutive bytes.
 !powerup_ram_block = $404000    
 
 
@@ -440,14 +440,18 @@ endif
 !player_toggle_climbing         = !player_toggle_spinjump+1
 !player_toggle_carry            = !player_toggle_climbing+1
 !player_toggle_ride_yoshi       = !player_toggle_carry+1
-!player_toggle_extended_hurt    = !player_toggle_ride_yoshi+1
+!player_toggle_easy_yoshiflight = !player_toggle_ride_yoshi+1
+!player_toggle_extended_hurt    = !player_toggle_easy_yoshiflight+1
 
-!player_disable_itembox         = !player_toggle_extended_hurt+1
+!player_physics_flags           = !player_toggle_extended_hurt+1
+
+!player_disable_itembox         = !player_physics_flags+1
 
 !player_backup_blocked_status   = !player_disable_itembox+1
 !player_backup_slippery_status  = !player_backup_blocked_status+1
+!player_backup_direction        = !player_backup_slippery_status+1
 
-!mask_controller_15             = !player_backup_slippery_status+1
+!mask_controller_15             = !player_backup_direction+1
 !mask_controller_17             = !mask_controller_15+1
 
 !player_animation_ram           = !mask_controller_17+1

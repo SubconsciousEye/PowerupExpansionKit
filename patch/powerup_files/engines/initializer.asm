@@ -24,10 +24,13 @@ init_ram:
     sta !player_toggle_slide
     sta !player_toggle_spinjump
     sta !player_toggle_ride_yoshi
+    sta !player_toggle_easy_yoshiflight
     sta !player_toggle_extended_hurt
+    sta !player_physics_flags
     sta !player_disable_itembox
     sta !player_backup_blocked_status
     sta !player_backup_slippery_status
+    sta !player_backup_direction
     sta !mask_controller_15
     sta !mask_controller_17
 

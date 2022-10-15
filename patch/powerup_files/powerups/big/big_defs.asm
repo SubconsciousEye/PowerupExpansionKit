@@ -24,6 +24,8 @@
 ;# Enable riding Yoshi with this powerup.
 !big_can_ride_yoshi = !yes
 
+;# Enable easier Yoshi flight with this powerup.
+!big_easy_yoshi_flight = !no
 
 
 ;################################################
