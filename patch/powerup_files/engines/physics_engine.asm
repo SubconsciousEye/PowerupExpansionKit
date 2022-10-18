@@ -70,6 +70,8 @@ pushpc
         jsl vertphysics_capecheck
     org $00D8E7|!bank
         jsl vertphysics_capecheck
+    org $00EFA3|!bank
+        jsl vertphysics_capecheck
 pullpc
 
 vertphysics:
