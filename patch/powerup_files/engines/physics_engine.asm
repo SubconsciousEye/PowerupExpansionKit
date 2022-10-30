@@ -56,7 +56,7 @@ horzphysics:
     lda !player_physics_flags
     asl
     bmi .end_physics
-    lda !13ed
+    lda !player_sliding
     bmi ..return
     jml $00D687|!bank
 ..return
