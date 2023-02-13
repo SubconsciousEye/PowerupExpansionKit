@@ -1,7 +1,7 @@
 ;################################################
 ;# Physics Flags
 
-;#  jh-- --fv
+;#  jhs- --fv
 ;#   - h = horizontal flag
 ;#   -  0 = run vanilla physics
 ;#   -  1 = run custom physics (skip)
@@ -16,6 +16,10 @@
 ;#   -  0 = run "capeflight" gravity
 ;#   -  1 = don't run physics (skip)
 ;# Note that vertical physics run *after* powerup abilities have run.
+;#   - s = swimming flag
+;#   -  0 = run vanilla physics
+;#   -  1 = use custom physics (skip)
+;# Note that swimming physics run *before* powerup abilities have run.
 
 pushpc
     org $00D630|!bank
@@ -42,9 +46,12 @@ pullpc
 
 horzphysics:
 .check0
+    lda !player_in_yoshi
+    bne ..yoshi
     lda !player_physics_flags
     asl
     bmi .end_physics
+..yoshi
     lda !player_x_speed
     beq ..return
     jml $00D626|!bank
@@ -53,9 +60,12 @@ horzphysics:
 .end_physics
     jml $00D7A4|!bank
 .check1
+    lda !player_in_yoshi
+    bne ..yoshi
     lda !player_physics_flags
     asl
     bmi .end_physics
+..yoshi
     lda !player_sliding
     bmi ..return
     jml $00D687|!bank
@@ -76,16 +86,18 @@ pullpc
 
 vertphysics:
 .main
+    lda !player_in_yoshi
+    bne .yoshi
     lda !player_physics_flags
     lsr
     bcs .end_physics
     lsr
-    bcs .flight
+    bcc .flight
+.yoshi
     jml $00D8CD|!bank
 .end_physics
     jml $00D94E|!bank
 .flight
-    bne .end_physics
     ldy $1407|!addr
     bne .inflight
     jml $00D7E9|!bank
@@ -96,6 +108,34 @@ vertphysics:
     and #$02
     rtl
 
+pushpc
+    org $00D988|!bank
+        jml swimphysics_main
+        nop
+pullpc
+
+swimphysics:
+.main
+    rep #$20
+    lda !player_x_speed_16
+    sta $08
+    lda !player_y_speed_16
+    sta $0a
+    sep #$20
+.physicschecks
+    lda !player_in_yoshi
+    bne .vanilla
+    lda !player_physics_flags
+    and #$20
+    bne .end_physics
+.vanilla
+    stz !player_sliding
+    stz !player_crouching
+    jml $00D98D|!bank
+.end_physics
+    lda.b #$00CD8B-1    ;\ jsl $00CEB1 at $00CD8B
+    sta $01,s           ;| jsr $D988 from $00CD7D
+    jml $00D062|!bank   ;/ $00CD80 bra to $00CD8F
 
 
 ;################################################

@@ -24,6 +24,9 @@
 ;# Enable riding Yoshi with this powerup.
 !lankario_can_ride_yoshi = !yes
 
+;# Enable easier Yoshi flight with this powerup.
+!lankario_easy_yoshi_flight = !no
+
 
 ;################################################
 ;# Powerdown
@@ -48,30 +51,30 @@
 ;# Item ID
 
 ;# Item ID associated to this powerup.
-!lankario_item_id = $0d
+!lankario_item_id = $05
 
 
 ;################################################
 ;# Graphics/Player image
 
 ;# Player 1's graphics index for this powerup.
-!lankario_p1_gfx_index = $0d
+!lankario_p1_gfx_index = $08
 
 ;# Player 2's graphics index for this powerup.
-!lankario_p2_gfx_index = $0d
+!lankario_p2_gfx_index = $08
 
 ;# Player 1's EXTRA graphics index for this powerup.
-!lankario_p1_extra_gfx_index = $0c
+!lankario_p1_extra_gfx_index = $08
 
 ;# Player 2's EXTRA graphics index for this powerup.
-!lankario_p2_extra_gfx_index = $0c
+!lankario_p2_extra_gfx_index = $08
 
 
 ;################################################
 ;# Player palette
 
 ;# Player 1's palette index
-!lankario_p1_palette_index = $00
+!lankario_p1_palette_index = $FF
 
 ;# Player 2's palette index
 !lankario_p2_palette_index = $04
@@ -132,8 +135,23 @@
 
 ;# Gravity "Multipliers" used to mod the original
 ;#  rise is when y-speed is negative.
-!lankario_gravity_rise_rate = 29/32
+!lankario_gravity_rise_rate = 28/32
 !lankario_gravity_fall_rate = 1/2
+
+
+;# Use alternate horizontal physics?
+;#  setting this will adjust the movement physics.
+;#  (this is akin to Luigi's physics from SMA2:SMW, assuming you didn't change the data values)
+;# Note that this doesn't affect swimming.
+!lankario_useAltHorzPhysics = !yes
+
+;# Default Physics Flags (Powerup Give Transition)
+if !lankario_useAltHorzPhysics == !yes
+    !lankario_physicsflags = %01000011
+else
+    !lankario_physicsflags = %00000011
+endif
+
 
 ;#######################
 ;# Mandatory macro (do not touch).

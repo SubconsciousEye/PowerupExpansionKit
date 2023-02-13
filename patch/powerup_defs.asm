@@ -170,6 +170,8 @@ macro setup_general_defines(num)
     !powerup_<num>_can_climb := !{!{_name}_can_climb}
     !powerup_<num>_can_carry_items := !{!{_name}_can_carry_items}
     !powerup_<num>_can_ride_yoshi := !{!{_name}_can_ride_yoshi}
+    
+    !powerup_<num>_easy_yoshi_flight := !{!{_name}_easy_yoshi_flight}
 
     !powerup_<num>_item_id := !{!{_name}_item_id}
 

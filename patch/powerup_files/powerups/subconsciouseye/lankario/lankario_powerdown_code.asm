@@ -7,5 +7,7 @@
 ;#
 ;# Note: In order to use this code, set the powerdown effect to Custom in the defs file.
 	
+    lda #$02
+    sta !player_physics_flags
     %powerdown_!{lankario_powerdown_action}(!lankario_powerdown_power_num, !lankario_powerdown_sfx_num, !lankario_powerdown_sfx_port)
     rts

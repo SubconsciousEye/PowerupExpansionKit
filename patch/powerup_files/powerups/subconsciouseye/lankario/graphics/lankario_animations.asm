@@ -15,7 +15,7 @@
     db $00                  ; [00]      Idle
     db $00,$00              ; [01-02]   Walking
     db $00                  ; [03]      Looking Up
-    db $00,$00,$00          ; [04-07]   Running
+    db $00,$00,$00          ; [04-06]   Running
     db $00                  ; [07]      Idle, holding an item
     db $00,$00              ; [08-09]   Walking, holding an item; second byte is also used for Jumping/Falling
     db $00                  ; [0A]      Looking up, holding an item
@@ -66,6 +66,7 @@
     db $02,$00              ; [4A-4B]   Part of scuttle frames, falling (24)
     db $04,$00              ; [4C-4D]   Part of Swimming Idle Animation
     db $05,$00              ; [4E-4F]   Part of Swimming Idle Animation, holding an item
+    db $00,$00              ; [50-51]   Yoshi Rider Poses (Separate from Climbing)
 
 .animations                 ; extended_anim_num
     dw ..jumping            ; [01]
